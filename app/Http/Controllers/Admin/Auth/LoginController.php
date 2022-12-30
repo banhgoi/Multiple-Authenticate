@@ -10,12 +10,8 @@ class LoginController extends Controller
 {
     public function logout(Request $request)
     {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-        return redirect('admin.login');
+        Auth::guard('admin')->logout();
+        return redirect()->route('admin.login');
     }
     public function login(Request $request)
     {
