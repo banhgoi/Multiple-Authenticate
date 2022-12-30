@@ -11,6 +11,6 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::guard('customer')->user();
-        echo 'Xin chào Khách Hàng:  '. $user->name;
+        return view('front.index');
     }
 }

@@ -11,6 +11,8 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::guard('admin')->user();
-        echo 'Xin chào quản trị viên: '. $user->name;
+        return view('admin.index', [
+            'user' => $user->name,
+        ]);
     }
 }

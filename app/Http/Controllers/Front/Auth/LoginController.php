@@ -16,7 +16,7 @@ class LoginController extends Controller
 
         $credentials = $request->only(['email', 'password']);
         if (Auth::guard('customer')->attempt($credentials)) {
-            return redirect()->route('home');
+            return redirect()->route('customer.home');
         } else {
             return redirect()->back()->withInput();
         }
