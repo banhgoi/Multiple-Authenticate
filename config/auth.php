@@ -40,6 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'customer' => [
+            'driver' => 'session',
+            'provider' => 'customers',
+        ],
     ],
 
     /*
@@ -65,6 +73,15 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin\AdminUser::class, 
+        ],
+
+        'customers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Front\ShopCustomer::class, 
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
