@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    public function logout(Request $request)
+    {
+        Auth::guard('customer')->logout();
+        return redirect()->route('customer.login');
+    }
     public function login(Request $request)
     {
         if ($request->getMethod() == 'GET') {

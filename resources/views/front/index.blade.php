@@ -119,7 +119,14 @@
                     <i class="fa fa-cart-plus" id='cart-icon' aria-hidden="true"></i>
                 </a>
             </li>
-            <li class='nav-style'><a href='{{ route('customer.login') }}'>LOGIN</a></li>
+            @if(\Illuminate\Support\Facades\Auth::guard('customer')->user())
+                <li class='nav-style'>welcome
+                    {{ \Illuminate\Support\Facades\Auth::guard('customer')->user()->name }}
+                </li>
+                <a href="{{ route('customer.logout') }}">Đăng Xuất</a>
+            @else
+                <li class='nav-style'><a href='{{ route('customer.login') }}'>LOGIN</a></li>
+            @endif
             <li class='nav-style'><a href='#'>ABOUT US</a></li>
             <li class='nav-style' id='shop'>SHOP</li>
             <li class='nav-style'>HOME</li>
